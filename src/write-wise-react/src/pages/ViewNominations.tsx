@@ -2,7 +2,9 @@ import React from 'react';
 import PhaseTabs from '../components/PhaseTabs'; // Corrected to default import
 import { Competition, Phase, Nomination } from '../types/Competition';
 import NominationsList from '../components/NominationList';
-import { useCompetitionData } from '../data/competitonData';
+//import { useVotes } from '../hooks/useVotes';
+//import { useEthereumContext } from '../contexts/EthereumContext';
+import { useNominations } from "../hooks/useNominations"
 
 interface ViewNominationsPageProps {
   competition: Competition;
@@ -12,7 +14,12 @@ interface ViewNominationsPageProps {
 }
 
 const ViewNominationsPage: React.FC<ViewNominationsPageProps> = ({ competition, onBack, onAddNomination, onViewNominationDetails }) => {
-    const { nominations } = useCompetitionData();
+  const { nominations, loading: nominationsLoading } = useNominations();
+  //const { votes, loading } = useVotes();
+  //const { account } = useEthereumContext();
+
+  const filteredNominations = nominations.filter((nomination) => nomination.competitionId === competition.id);
+
   return (
     <div className="p-5">
       {/* Title Section */}
@@ -21,8 +28,8 @@ const ViewNominationsPage: React.FC<ViewNominationsPageProps> = ({ competition, 
       {/* Phase Tabs Component */}
       <PhaseTabs currentPhase={competition.phase} layout="horizontal" />
 
-       {/* Add Nomination Button - Visible only during Nomination Phase */}
-       {competition.phase === Phase.Nomination && (
+      {/* Add Nomination Button - Visible only during Nomination Phase */}
+      {competition.phase === Phase.Nomination && (
         <div className="mb-5">
           <button
             className="w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition"
@@ -34,7 +41,15 @@ const ViewNominationsPage: React.FC<ViewNominationsPageProps> = ({ competition, 
       )}
 
       {/* Nominations List */}
-      <NominationsList nominations={nominations} phase={competition.phase} onViewDetails={onViewNominationDetails}/>
+      {nominationsLoading ? (
+        <p>Loading nominations...</p>
+      ) : (
+        <NominationsList
+          nominations={filteredNominations}
+          phase={competition.phase}
+          onViewDetails={onViewNominationDetails}
+        />
+      )}
 
       {/* Back Button */}
       <div className="mt-10">

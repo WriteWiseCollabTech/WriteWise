@@ -4,13 +4,13 @@ import { Competition, PublicationType, NominationSource, Phase, Nomination, Vote
 // Dummy Competitions
 const competitionsData: Competition[] = [
   {
-    id: 1,
-    title: 'Best Research Paper 2024',
-    description: 'A competition to nominate and vote on the best research papers of 2024.',
+    id: '0x0000000000000000000000000000000000000000000000000000000000000001',
+    title: 'Innovations in Healthcare Systems',
+    description: 'A competition focused on exploring technological advancements and innovative models that can improve healthcare systems worldwide.',
     phase: Phase.Nomination,
     publicationType: [PublicationType.Published],
     source: [NominationSource.Established],
-    creator: 'user1',
+    creator: 'samharris.eth',
     nominationDates: '2024-10-01 to 2024-10-15',
     votingDates: '2024-10-16 to 2024-10-30',
     choiceMetadata: 'Journal Publication, Peer Reviewed',
@@ -22,13 +22,13 @@ const competitionsData: Competition[] = [
       ],
   },
   {
-    id: 2,
-    title: 'Top DeSci Papers 2024',
-    description: 'A competition for decentralized science (DeSci) publications.',
+    id: '0x0000000000000000000000000000000000000000000000000000000000000002',
+    title: 'Impact of Universal Basic Income',
+    description: "A competition exploring research on the effects of Universal Basic Income (UBI) across different nations, focusing on poverty alleviation and social mobility. Researchers are invited to submit papers investigating UBI's role in reducing inequality, fostering economic stability, and influencing labor markets worldwide.",
     phase: Phase.Voting,
     publicationType: [PublicationType.PrePrint],
     source: [NominationSource.DeSci],
-    creator: 'user1',
+    creator: 'hassanfikri.eth',
     nominationDates: '2024-09-01 to 2024-09-15',
     votingDates: '2024-09-16 to 2024-09-30',
     choiceMetadata: 'Preprint, Open Source',
@@ -40,13 +40,13 @@ const competitionsData: Competition[] = [
       ],
   },
   {
-    id: 3,
-    title: 'Most Influential Paper 2024',
-    description: 'Nominate and vote on the most influential papers of 2024.',
+    id: '0x0000000000000000000000000000000000000000000000000000000000000003',
+    title: 'Biology & Quantified Self Movement',
+    description: 'This competition highlights research on the intersection of biology and technology in the quantified self movement. Papers should focus on how biological data collection through personal devices informs health decisions, self-awareness, and preventive healthcare, impacting both individual well-being and public health strategies.',
     phase: Phase.Closed,
     publicationType: [PublicationType.Published],
     source: [NominationSource.Established],
-    creator: 'user1',
+    creator: 'jennyblock.eth',
     nominationDates: '2024-08-01 to 2024-08-15',
     votingDates: '2024-08-16 to 2024-08-30',
     choiceMetadata: 'Magazine Publication, Peer Reviewed',
@@ -62,42 +62,51 @@ const competitionsData: Competition[] = [
 // Dummy Nominations
 export const nominationsData: Nomination[] = [
   {
-    competitionId: '1',
-    link: 'https://example.com/research-paper-1',
-    description: 'A groundbreaking research paper on quantum computing applications in cryptography.',
-    imageUrl: 'https://example.com/image1.jpg',
-    reason: 'Innovative approach to applying quantum computing to cryptographic challenges.',
+    id: '0x0000000000000000000000000000000000000000000000000000000000000001',
+    competitionId: '0x0000000000000000000000000000000000000000000000000000000000000001',
+    title: 'Healthcare AI: Predicting Outcomes with Machine Learning',
+    link: 'https://descier.mypinata.cloud/ipfs/QmSriSFFwoXDtE8MrrJAzs3GpqzjK3aZYo7QZMK1wsp6sQ',
+    description: 'This paper explores AI’s ability to predict patient outcomes, optimizing treatments and reducing hospital readmissions.',
+    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354080165971/image.jpg?ex=6718ee66&is=67179ce6&hm=9ba58c30d9f77c1f6fb992eba7e8ceda9ead88c76099f40f3ad0b4e4a53bcea5&',
+    reason: 'Nominated for its ground-breaking application of AI in healthcare, showcasing how technology can',
+    nominator: 'user1'
   },
   {
-    competitionId: '2',
-    link: 'https://example.com/decentralized-science',
-    description: 'An open access preprint about decentralized science and its future.',
-    imageUrl: 'https://example.com/image2.jpg',
-    reason: 'Pioneering work in DeSci, advocating for open and decentralized publishing.',
+    id: '0x0000000000000000000000000000000000000000000000000000000000000002',
+    competitionId: '0x0000000000000000000000000000000000000000000000000000000000000001',
+    title: 'CRISPR: Advancements in Gene Editing for Disease Prevention',
+    link: 'https://descier.mypinata.cloud/ipfs/QmSriSFFwoXDtE8MrrJAzs3GpqzjK3aZYo7QZMK1wsp6sQ',
+    description: 'A comprehensive review of how CRISPR technology revolutionizes gene editing, particularly in preventing genetic disorders',
+    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354378092645/image2.jpg?ex=6718ee66&is=67179ce6&hm=03d666fddfeb0230a70089cc0ca81adc46e5b039c8bb53a2b7890157d552339c&',
+    reason: 'transformative impact on disease prevention, highlighting its potential to eliminate hereditary conditions globally',
+    nominator: 'user1'
   },
   {
-    competitionId: '3',
-    link: 'https://example.com/influential-paper',
-    description: 'A paper that has significantly impacted modern machine learning techniques.',
-    imageUrl: 'https://example.com/image3.jpg',
-    reason: 'Has led to major advancements in the efficiency of machine learning algorithms.',
+    id: '0x0000000000000000000000000000000000000000000000000000000000000003',
+    competitionId: '0x0000000000000000000000000000000000000000000000000000000000000001',
+    title: 'Advancing Precision Medicine in Oncology',
+    link: 'https://descier.mypinata.cloud/ipfs/QmSriSFFwoXDtE8MrrJAzs3GpqzjK3aZYo7QZMK1wsp6sQ',
+    description: 'Research advancing personalized cancer treatment through genetic profiling to improve patient outcomes and reduce adverse effects',
+    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354667495424/image3.jpg?ex=6718ee66&is=67179ce6&hm=e3375c5b493a6c4a01061cc7ed3fed494033111a0b9a1207f63c256639eeb983&',
+    reason: 'This paper innovates cancer treatment by tailoring therapies to individual patients, enhancing effectiveness while minimizing harmful side effects',
+     nominator: 'user1'
   },
 ];
 
 // Dummy Votes
 export const votesData: Vote[] = [
   {
-    userId: 'user1',
+    nominationId: '0x0000000000000000000000000000000000000000000000000000000000000001',
     userAddress: '0x1234567890abcdef1234567890abcdef12345678',
     votes: '5',
   },
   {
-    userId: 'user2',
+    nominationId: '0x0000000000000000000000000000000000000000000000000000000000000002',
     userAddress: '0xabcdef1234567890abcdef1234567890abcdef12',
     votes: '3',
   },
   {
-    userId: 'user3',
+    nominationId: '0x0000000000000000000000000000000000000000000000000000000000000003',
     userAddress: '0x7890abcdef1234567890abcdef1234567890abcd',
     votes: '10',
   },
