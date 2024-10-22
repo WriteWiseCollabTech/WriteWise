@@ -12,6 +12,9 @@ WriteWise supports decentralized science while awarding authors with prizes and 
 
 
 ### Features
+1. Create Competion
+2. Nominate a paper to a competition
+3. Vote on nominated paper
 
 ### Installation
 
