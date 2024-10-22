@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.24;
 
-import "./Counters.sol";
+import "./_counters.sol";
 import "./_pausable.sol";
 import "./_ownable.sol";
 import "./_event.sol";
