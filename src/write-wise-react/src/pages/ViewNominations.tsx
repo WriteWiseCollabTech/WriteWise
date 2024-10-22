@@ -1,9 +1,9 @@
-import React, {useState, useEffect }  from 'react';
+import React from 'react';
 import PhaseTabs from '../components/PhaseTabs'; // Corrected to default import
-import { Competition, Phase, Nomination, Vote } from '../types/Competition';
+import { Competition, Phase, Nomination } from '../types/Competition';
 import NominationsList from '../components/NominationList';
-import { useVotes } from '../hooks/useVotes';
-import { useEthereumContext } from '../contexts/EthereumContext';
+//import { useVotes } from '../hooks/useVotes';
+//import { useEthereumContext } from '../contexts/EthereumContext';
 import { useNominations } from "../hooks/useNominations"
 
 interface ViewNominationsPageProps {
