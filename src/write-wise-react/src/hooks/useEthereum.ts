@@ -1,26 +1,15 @@
 import { useEffect, useState, useCallback } from 'react';
 import { ethers } from 'ethers';
+import { ARBITRUM_GOERLI_PARAMS } from '../contracts/config'
 
 export interface EthereumHook {
     provider: ethers.BrowserProvider | null;
     signer: ethers.Signer | null;
     account: string | null;
     connectWallet: () => Promise<void>;
-    createTransaction: (/*txDetails: ethers.TransactionRequest */) => Promise<void>;
+    createTransaction: (transactionFunction: (signer: ethers.Signer) => Promise<any>) => Promise<any>;
+    createReadOperation: (readFunction: (provider: ethers.Provider) => Promise<any>) => Promise<any>;
 }
-
-const ARBITRUM_GOERLI_PARAMS = {
-    chainId: '0x66eee', // 421614 in hex
-    chainName: 'Arbitrum Sepolia Testnet',
-    rpcUrls: ['https://arbitrum-sepolia.blockpi.network/v1/rpc/public'],
-    nativeCurrency: {
-        name: 'Ethereum',
-        symbol: 'ETH',
-        decimals: 18,
-    },
-    blockExplorerUrls: ['https://sepolia-explorer.arbitrum.io'],
-};
-
 
 export const useEthereum = (): EthereumHook => {
     const [provider, setProvider] = useState<ethers.BrowserProvider | null>(null);
@@ -29,38 +18,32 @@ export const useEthereum = (): EthereumHook => {
 
     const retrieveAndSetAccount = useCallback(async (browserProvider: ethers.BrowserProvider) => {
         try {
-            const accounts = await browserProvider.send('eth_accounts', []);
-            if (accounts.length > 0) {
-                const walletSigner = await browserProvider.getSigner();
-                console.log(walletSigner)
-                setSigner(walletSigner);
-                setAccount(accounts[0]);
-                localStorage.setItem('connectedAccount', accounts[0]);
-            }
+          const accounts = await browserProvider.send('eth_accounts', []);
+          if (accounts.length > 0) {
+            const walletSigner = await browserProvider.getSigner();
+            setSigner(walletSigner);
+            setAccount(accounts[0]);
+            localStorage.setItem('connectedAccount', accounts[0]);
+          } else {
+            setAccount(null);
+            localStorage.removeItem('connectedAccount');
+          }
         } catch (error) {
-            console.error('Error retrieving account:', error);
+          console.error('Error retrieving account:', error);
         }
-    }, []);
+      }, []);
 
-    useEffect(() => {
+      useEffect(() => {
         const initProvider = async () => {
-            if (typeof window !== 'undefined' && window.ethereum) {
-                const browserProvider = new ethers.BrowserProvider(window.ethereum);
-                setProvider(browserProvider);
-
-                const savedAccount = localStorage.getItem('connectedAccount');
-                if (savedAccount) {
-                    setAccount(savedAccount);
-                    const walletSigner = await browserProvider.getSigner();
-                    setSigner(walletSigner);
-                } else {
-                    // Try to retrieve the current connected account from the wallet provider
-                    await retrieveAndSetAccount(browserProvider);
-                }
-            }
+          if (typeof window !== 'undefined' && window.ethereum) {
+            const browserProvider = new ethers.BrowserProvider(window.ethereum);
+            setProvider(browserProvider);
+    
+            await retrieveAndSetAccount(browserProvider);
+          }
         };
         initProvider();
-    }, [retrieveAndSetAccount]);
+      }, [retrieveAndSetAccount]);
 
 
     const switchToArbitrumNetwork = useCallback(async () => {
@@ -132,33 +115,40 @@ export const useEthereum = (): EthereumHook => {
 
     }, [provider, switchToArbitrumNetwork]);
 
-    const createTransaction = useCallback(async (/*txDetails: ethers.TransactionRequest */) => {
+    const createTransaction = async (transactionFunction: (signer: ethers.Signer) => Promise<any>) => {
         if (!signer) {
             throw new Error('No signer available. Please connect your wallet.');
         }
-
-        // Ensure on Arbitrum network before creating the transaction
-
-
         try {
             await ensureOnArbitrumNetwork();
-            await new Promise((resolve) => setTimeout(resolve, 2000)); // Mock delay for blockchain transaction
-            //const tx = await signer.sendTransaction(txDetails);
-            //console.log('Transaction sent:', tx);
-            //await tx.wait(); // Wait for transaction to be confirmed
-            //console.log('Transaction confirmed:', tx);
-            //return tx;
+            // Use the current state value of signer
+            const result = await transactionFunction(signer);
+            return result;
         } catch (error) {
             console.error('Error sending transaction:', error);
             throw error;
         }
-    }, [signer, ensureOnArbitrumNetwork]);
+    };
+
+    const createReadOperation = async (readFunction: (provider: ethers.Provider) => Promise<any>) => {
+        if (!provider) {
+            throw new Error('No provider available. Please connect to the correct network.');
+        }
+        try {
+            const result = await readFunction(provider);
+            return result;
+        } catch (error) {
+            console.error('Error reading data:', error);
+            throw error;
+        }
+    };
 
     return {
         provider,
         signer,
         account,
         connectWallet,
-        createTransaction
+        createTransaction,
+        createReadOperation
     };
 };

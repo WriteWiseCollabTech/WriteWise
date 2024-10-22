@@ -21,7 +21,7 @@ export interface Rewards {
 }
 
 export interface Competition {
-    id: number;
+    id: string;
     title: string;
     description: string;
     phase: Phase,
@@ -36,15 +36,18 @@ export interface Competition {
   }
 
   export interface Nomination {
+    id: string;
     competitionId: string;
+    title: string;
     link: string;
     description: string;
     imageUrl: string
     reason: string;
+    nominator: string;
   }
 
   export interface Vote {
-    userId: string;
+    nominationId: string;
     userAddress: string;
     votes: string;
   }

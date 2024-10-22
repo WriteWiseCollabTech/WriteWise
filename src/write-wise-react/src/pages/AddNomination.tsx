@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import PhaseTabs from '../components/PhaseTabs';
 import AddNominationButton from '../components/AddNominationButton';
-import { Phase } from '../types/Competition';
+import { Nomination, Phase } from '../types/Competition';
 
 interface AddNominationPageProps {
+  competitionId: string;
   competitionPhase: Phase;
   onBack: () => void;
 }
 
-const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionPhase, onBack }) => {
+const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, competitionPhase, onBack }) => {
   const [link, setLink] = useState('');
+  const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
   const [reason, setReason] = useState('');
@@ -26,11 +28,15 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionPhase,
     }
   };
 
-  const nomination = {
+  const nomination: Nomination = {
+    id: "1", 
+    title,
+    competitionId,
     link,
     description,
     imageUrl,
     reason,
+    nominator: '',
   };
 
   return (
@@ -43,6 +49,23 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionPhase,
 
       {/* Form Fields */}
       <div className="space-y-5 mb-5">
+
+      <div>
+          <label className="block font-semibold mb-1" htmlFor="title">
+            Title <span className="text-red-500">*</span>
+          </label>
+          <input
+            id="title"
+            type="text"
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            placeholder="Title of paper"
+            maxLength={200}
+            value={description}
+            onChange={(e) => setTitle(e.target.value)}
+            required
+          />
+        </div>
+
         {/* Link to Publication Source */}
         <div>
           <label className="block font-semibold mb-1" htmlFor="link">

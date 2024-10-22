@@ -21,7 +21,7 @@ const ViewDetailsPage: React.FC<ViewDetailsPageProps> = ({ nomination, competiti
             {/* Embedded PDF Viewer */}
             <div className="mb-5">
                 <h2 className="text-xl font-semibold mb-2">Publication</h2>
-                <iframe
+                <iframe 
                     src={nomination.link}
                     title="Publication PDF"
                     className="w-full h-[500px] border rounded-lg"
@@ -38,7 +38,7 @@ const ViewDetailsPage: React.FC<ViewDetailsPageProps> = ({ nomination, competiti
                 </button>
                 {competitionPhase === Phase.Voting && (
                     <div className="flex-1 basis-1/2">
-                        <VoteButton nominationId={nomination.link} disabled={competitionPhase !== Phase.Voting} />
+                        <VoteButton nominationId={nomination.id} disabled={competitionPhase !== Phase.Voting} />
                     </div>
                 )}
             </div>

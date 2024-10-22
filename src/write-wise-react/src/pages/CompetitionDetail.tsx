@@ -1,14 +1,18 @@
 import React from 'react';
-import { Competition } from '../types/Competition';
+import { Competition, Nomination } from '../types/Competition';
 import PhaseTabs from '../components/PhaseTabs';
+import { useNominations } from "../hooks/useNominations"
 
 
 interface CompetitionDetailsPageProps {
     competition: Competition;
-    onViewNominations: () => void;
+    onViewNominations: (nominations: Nomination[]) => void;
 }
 
 const CompetitionDetailsPage: React.FC<CompetitionDetailsPageProps> = ({ competition, onViewNominations }) => {
+    const { nominations, loading } = useNominations();
+    const nominationSize = nominations.filter((nomination) => nomination.competitionId === competition.id).length
+
     return (
         <div className="p-5">
             {/* Title Section */}
@@ -25,11 +29,17 @@ const CompetitionDetailsPage: React.FC<CompetitionDetailsPageProps> = ({ competi
                 <p className="text-gray-800 mb-5">{competition.description}</p>
 
                 {/* View Nominations Button */}
-                <button
-                    className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition mb-5"
-                    onClick={onViewNominations}>
-                    VIEW 0 NOMINATIONS
-                </button>
+                {loading ? (
+                    <div className="text-center mb-5">
+                        <span>Loading nominations...</span>
+                    </div>
+                ) : (
+                    <button
+                        className="w-full bg-blue-600 text-white font-semibold py-2 rounded-lg hover:bg-blue-700 transition mb-5"
+                        onClick={() => onViewNominations(nominations)}>
+                        VIEW {nominationSize} NOMINATIONS
+                    </button>
+                )}
             </div>
             {/* Phase Section */}
             <PhaseTabs currentPhase={competition.phase} layout="vertical" />

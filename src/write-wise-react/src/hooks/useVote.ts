@@ -1,8 +1,9 @@
 import { useState } from 'react';
-import { useEthereum } from './useEthereum';
+import { useEthereumContext } from '../contexts/EthereumContext';
+import { castVote } from '../contracts/contractService'
 
 export const useVote = () => {
-    const { createTransaction } = useEthereum();
+    const { createTransaction } = useEthereumContext();
     const [showSuccessModal, setShowSuccessModal] = useState(false);
     const [isVoting, setIsVoting] = useState(false);
 
@@ -12,7 +13,8 @@ export const useVote = () => {
             // Blockchain voting logic goes here
             console.log(`Initiating vote transaction for nomination ${nominationId}...`);
 
-            await createTransaction();
+            const voteTransaction = castVote(nominationId);
+            await createTransaction(voteTransaction);
 
             // If transaction is successful
             setShowSuccessModal(true);

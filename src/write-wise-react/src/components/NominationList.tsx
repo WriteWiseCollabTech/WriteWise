@@ -21,7 +21,7 @@ const NominationsList: React.FC<NominationsListProps> = ({ phase, nominations, o
     return (
         <div className="space-y-5">
             {nominations.map((nomination) => (
-                <div key={nomination.link} className="p-4 border rounded-lg shadow-md bg-white">
+                <div key={nomination.id} className="p-4 border rounded-lg shadow-md bg-white">
                     {/* Nomination Image Placeholder */}
                     <div className="w-full h-32 bg-gray-300 rounded-lg mb-4 flex items-center justify-center">
                         <img src={nomination.imageUrl} alt={nomination.description} className="h-full object-cover rounded-lg" />
@@ -36,7 +36,7 @@ const NominationsList: React.FC<NominationsListProps> = ({ phase, nominations, o
                             onClick={() => onViewDetails(nomination)}>
                             View Details
                         </button>
-                        <VoteButton nominationId={nomination.link} disabled={phase !== Phase.Voting} />
+                        <VoteButton nominationId={nomination.id} disabled={phase !== Phase.Voting} />
                     </div>
                 </div>
             ))}

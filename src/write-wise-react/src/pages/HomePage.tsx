@@ -1,6 +1,6 @@
 import React from 'react';
-import { useCompetitionData } from '../data/competitonData';
 import { Competition } from '../types/Competition';
+import { useContests } from "../hooks/useContests"
 
 
 interface HomePageProps {
@@ -8,15 +8,19 @@ interface HomePageProps {
 }
 
 const HomePage: React.FC<HomePageProps> = ({ onViewDetails }) => {
+    const { contests, loading, error } = useContests();
 
-    const { competitions } = useCompetitionData();
     return (
         <div className="p-8">
             <h1 className="text-4xl font-bold mb-4 text-left">WriteWise</h1>
-            <h2 className="text-lg text-gray-700 text-left">Top Competitions open to voting</h2>
+            <h2 className="text-lg text-gray-700 text-left">Top Competitions</h2>
             <div className="mb-10">
-                {competitions.length > 0 ? (
-                    competitions.map((competition) => (
+                {loading ? (
+                    <p className="text-gray-500">Loading competitions...</p>
+                ) : error ? (
+                    <p className="text-red-500">{error}</p>
+                ) : contests.length > 0 ? (
+                    contests.map((competition) => (
                         <div
                             key={competition.id}
                             onClick={() => onViewDetails(competition)}

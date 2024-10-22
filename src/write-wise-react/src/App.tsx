@@ -15,7 +15,6 @@ function App() {
   const [selectedNomination, setSelectedNomination] = useState<Nomination | null>(null);
 
 
-
   const goToPage = (page: string, competition: Competition | null = null, nomination: Nomination | null = null): void => {
     setCurrentPage(page);
     setSelectedCompetition(competition);
@@ -46,6 +45,7 @@ function App() {
       )}
       {currentPage === 'add-nomination' && selectedCompetition && (
         <AddNominationPage
+          competitionId={selectedCompetition.id}
           competitionPhase={selectedCompetition.phase}
           onBack={() => goToPage('view-nominations', selectedCompetition)}
         />

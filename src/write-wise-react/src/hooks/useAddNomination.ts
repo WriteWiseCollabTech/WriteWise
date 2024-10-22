@@ -1,20 +1,33 @@
 import { useState } from 'react';
 import { useEthereumContext } from '../contexts/EthereumContext';
+import { newNomination } from '../contracts/contractService'
+import { Nomination } from '../types/Competition';
+import { convertNominationToBlockchain } from '../utils/metadata'
 
 export const useAddNomination = () => {
-    const { account, connectWallet } = useEthereumContext();
+    const { account, connectWallet, createTransaction } = useEthereumContext();
     const [isAdding, setIsAdding] = useState(false);
     const [showSuccessModal, setShowSuccessModal] = useState(false);
 
-    const addNomination = async (nomination: { link: string; description: string; imageUrl: string; reason: string }) => {
+    const addNomination = async (nomination: Nomination) => {
         try {
             if (!account) {
                 await connectWallet();
             }
+            if (!account) {
+                throw new Error('Wallet not connected. Please connect your wallet to proceed.');
+            }
+            
+            const nominationData: Nomination = {
+                ...nomination,
+                nominator: account,
+              };
+            const nominationBlockchain = convertNominationToBlockchain(nominationData)
 
             setIsAdding(true);
             // Simulate API call or blockchain transaction to add the nomination
-            await new Promise((resolve) => setTimeout(resolve, 2000)); // Mock delay
+            const transaction = newNomination(nominationBlockchain.contestId, nominationBlockchain.metadata, nominationBlockchain.manager)
+            await createTransaction(transaction);
 
             // If successful, show success modal
             setShowSuccessModal(true);

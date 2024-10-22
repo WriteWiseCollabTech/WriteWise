@@ -2,9 +2,10 @@ import React from 'react';
 import { useEthereumContext } from '../contexts/EthereumContext';
 import { useAddNomination } from '../hooks/useAddNomination';
 import SuccessModal from './SuccessModal';
+import { Nomination } from '../types/Competition';
 
 interface AddNominationButtonProps {
-  nomination: { link: string; description: string; imageUrl: string; reason: string };
+  nomination: Nomination
 }
 
 const AddNominationButton: React.FC<AddNominationButtonProps> = ({ nomination }) => {
