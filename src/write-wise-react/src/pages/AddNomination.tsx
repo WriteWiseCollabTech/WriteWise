@@ -139,7 +139,7 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
           Back
         </button>
         <div className="flex-1 basis-1/2">
-          <AddNominationButton nomination={nomination} />
+          <AddNominationButton nomination={nomination}  onSuccess={() => onBack()}  />
         </div>
       </div>
     </div>

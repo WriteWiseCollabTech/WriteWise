@@ -5,10 +5,11 @@ import SuccessModal from './SuccessModal';
 import { Nomination } from '../types/Competition';
 
 interface AddNominationButtonProps {
-  nomination: Nomination
+  nomination: Nomination;
+  onSuccess: () => void;
 }
 
-const AddNominationButton: React.FC<AddNominationButtonProps> = ({ nomination }) => {
+const AddNominationButton: React.FC<AddNominationButtonProps> = ({ nomination, onSuccess }) => {
   const { account, connectWallet } = useEthereumContext();
   const { addNomination, isAdding, showSuccessModal, closeModal } = useAddNomination();
 
@@ -19,6 +20,11 @@ const AddNominationButton: React.FC<AddNominationButtonProps> = ({ nomination })
     if (account) {
       await addNomination(nomination);
     }
+  };
+
+  const handleCloseModal = () => {
+    closeModal();
+    onSuccess(); // Navigate back after closing the modal
   };
 
   return (
@@ -39,7 +45,7 @@ const AddNominationButton: React.FC<AddNominationButtonProps> = ({ nomination })
         <SuccessModal
           header="Nomination Submitted!"
           message="Thank you for your contribution to decentralizing research publications."
-          onClose={closeModal}
+          onClose={handleCloseModal}
         />
       )}
     </div>
