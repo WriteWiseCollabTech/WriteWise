@@ -22,6 +22,8 @@ const NominationsList: React.FC<NominationsListProps> = ({ phase, nominations, o
         <div className="space-y-5">
             {nominations.map((nomination) => (
                 <div key={nomination.id} className="p-4 border rounded-lg shadow-md bg-white">
+
+                    <h1 className="text-lg font-bold mb-1">{nomination.title}</h1>
                     {/* Nomination Image Placeholder */}
                     <div className="w-full h-32 bg-gray-300 rounded-lg mb-4 flex items-center justify-center">
                         <img src={nomination.imageUrl} alt={nomination.description} className="h-full object-cover rounded-lg" />

@@ -1,9 +1,10 @@
 import { Competition, Nomination, Phase, Vote } from "../types/Competition"
 import { ContestBlockchain, NominationBlockchain, VoteBlockchain } from "../types/Structs";
+import { ethers } from 'ethers';
 
 
 export const parseCompetitionMetadata = (contest: ContestBlockchain, id: string): Competition => {
-    const metadata = JSON.parse(contest.metadata);
+    const metadata = decodeMetadataFromHex(contest.metadata)
   
     return {
       id: id,
@@ -23,10 +24,10 @@ export const parseCompetitionMetadata = (contest: ContestBlockchain, id: string)
 
 
   export const parseNominationMetadata = (nomination: NominationBlockchain, nominationId: string): Nomination => {
-    const metadata = JSON.parse(nomination.metadata);
-  
+    const metadata = decodeMetadataFromHex(nomination.metadata)
+    console.log(metadata)
     return {
-     title: metadata.title,
+      title: metadata.title,
       competitionId: nomination.contestId,
       link: metadata.link,
       description: metadata.description,
@@ -36,6 +37,30 @@ export const parseCompetitionMetadata = (contest: ContestBlockchain, id: string)
       nominator: nomination.manager,  // Manager/creator of the nomination
     };
   };
+
+  export const encodeMetadataToHex = (metadata: Record<string, any>): string => {
+    // Convert the metadata object to a JSON string
+    const jsonString = JSON.stringify(metadata);
+  
+    // Convert the JSON string to a bytes array
+    const bytesArray = ethers.toUtf8Bytes(jsonString);
+  
+    // Convert the bytes array to a hex string
+    return ethers.hexlify(bytesArray);
+  };
+
+  export const decodeMetadataFromHex = (hexString: string): Record<string, any> => {
+    // Convert the hex string to a bytes array
+    const bytesArray = ethers.getBytes(hexString);
+  
+    // Convert the bytes array to a JSON string
+    const jsonString = ethers.toUtf8String(bytesArray);
+  
+    // Parse the JSON string to an object
+    return JSON.parse(jsonString);
+  };
+
+
   export const parseVote = (vote: VoteBlockchain): Vote => {
     return {
         nominationId: vote.nominationId,
@@ -45,14 +70,14 @@ export const parseCompetitionMetadata = (contest: ContestBlockchain, id: string)
   }
 
   export const convertNominationToBlockchain = (nomination: Nomination): NominationBlockchain => {
-    const metadata = JSON.stringify({
+    const metadataJson = {
       title: nomination.title,
       link: nomination.link,
       description: nomination.description,
       imageUrl: nomination.imageUrl,
       reason: nomination.reason,
-    });
-  
+    };
+    const metadata = encodeMetadataToHex(metadataJson)
     return {
       contestId: nomination.competitionId,
       metadata,

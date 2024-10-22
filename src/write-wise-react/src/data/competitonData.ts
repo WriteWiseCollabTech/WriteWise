@@ -67,7 +67,7 @@ export const nominationsData: Nomination[] = [
     title: 'Healthcare AI: Predicting Outcomes with Machine Learning',
     link: 'https://descier.mypinata.cloud/ipfs/QmSriSFFwoXDtE8MrrJAzs3GpqzjK3aZYo7QZMK1wsp6sQ',
     description: 'This paper explores AI’s ability to predict patient outcomes, optimizing treatments and reducing hospital readmissions.',
-    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354080165971/image.jpg?ex=6718ee66&is=67179ce6&hm=9ba58c30d9f77c1f6fb992eba7e8ceda9ead88c76099f40f3ad0b4e4a53bcea5&',
+    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354667495424/image3.jpg?ex=6718ee66&is=67179ce6&hm=e3375c5b493a6c4a01061cc7ed3fed494033111a0b9a1207f63c256639eeb983&',
     reason: 'Nominated for its ground-breaking application of AI in healthcare, showcasing how technology can',
     nominator: 'user1'
   },
@@ -77,7 +77,7 @@ export const nominationsData: Nomination[] = [
     title: 'CRISPR: Advancements in Gene Editing for Disease Prevention',
     link: 'https://descier.mypinata.cloud/ipfs/QmSriSFFwoXDtE8MrrJAzs3GpqzjK3aZYo7QZMK1wsp6sQ',
     description: 'A comprehensive review of how CRISPR technology revolutionizes gene editing, particularly in preventing genetic disorders',
-    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354378092645/image2.jpg?ex=6718ee66&is=67179ce6&hm=03d666fddfeb0230a70089cc0ca81adc46e5b039c8bb53a2b7890157d552339c&',
+    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354080165971/image.jpg?ex=6718ee66&is=67179ce6&hm=9ba58c30d9f77c1f6fb992eba7e8ceda9ead88c76099f40f3ad0b4e4a53bcea5&',
     reason: 'transformative impact on disease prevention, highlighting its potential to eliminate hereditary conditions globally',
     nominator: 'user1'
   },
@@ -87,7 +87,7 @@ export const nominationsData: Nomination[] = [
     title: 'Advancing Precision Medicine in Oncology',
     link: 'https://descier.mypinata.cloud/ipfs/QmSriSFFwoXDtE8MrrJAzs3GpqzjK3aZYo7QZMK1wsp6sQ',
     description: 'Research advancing personalized cancer treatment through genetic profiling to improve patient outcomes and reduce adverse effects',
-    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354667495424/image3.jpg?ex=6718ee66&is=67179ce6&hm=e3375c5b493a6c4a01061cc7ed3fed494033111a0b9a1207f63c256639eeb983&',
+    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354378092645/image2.jpg?ex=6718ee66&is=67179ce6&hm=03d666fddfeb0230a70089cc0ca81adc46e5b039c8bb53a2b7890157d552339c&',
     reason: 'This paper innovates cancer treatment by tailoring therapies to individual patients, enhancing effectiveness while minimizing harmful side effects',
      nominator: 'user1'
   },

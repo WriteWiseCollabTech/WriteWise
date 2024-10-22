@@ -93,7 +93,7 @@ export const getAllNominations = () => {
                     }
                     console.log(nominationBlockchain)
                     const nomination = parseNominationMetadata(nominationBlockchain, nominationId)
-                    console.log(`parsed nomination ${nomination}`)
+                    console.log('parsed nomination',nomination)
                     nominations.push(nomination);
                     idCounter++;
                 } catch (error) {
