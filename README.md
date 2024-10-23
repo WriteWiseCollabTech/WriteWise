@@ -23,8 +23,6 @@ __The Hackthon Team__
 1. Create Competion
 2. Nominate a paper to a competition
 3. Vote on nominated paper
-1. Create competions
-1. Nominate papers for a competition
 1. Cast vote on nominated papers
 1. View votes, nominations and competitions
 
