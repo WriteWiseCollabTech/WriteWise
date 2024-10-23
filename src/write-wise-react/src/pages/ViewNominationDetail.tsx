@@ -1,7 +1,6 @@
 import React from 'react';
 import { Nomination, Phase } from '../types/Competition';
 import VoteButton from '../components/VoteButton';
-import PhaseTabs from '../components/PhaseTabs';
 
 interface ViewDetailsPageProps {
     nomination: Nomination;
@@ -14,16 +13,12 @@ const ViewDetailsPage: React.FC<ViewDetailsPageProps> = ({ nomination, competiti
     return (
         <div className="p-5">
             {/* Title Section */}
-            <h1 className="text-3xl font-semi-bold text-primary mb-5">Read Paper</h1>
-
-            {/* Phase Tabs Component */}
-            <PhaseTabs currentPhase={competitionPhase} layout="horizontal" />
+            <h1 className="text-3xl font-semi-bold text-center text-primary mb-5">Read Paper</h1>
 
             {/* Embedded PDF Viewer */}
             <div className="mb-5">
-                <h2 className="text-xl font-semibold mb-2">Publication</h2>
-                <iframe 
-                    src={nomination.link}
+                <iframe
+                    src={`${nomination.link}#toolbar=0`}
                     title="Publication PDF"
                     className="w-full h-[500px] border rounded-lg"
                 ></iframe>
@@ -39,7 +34,7 @@ const ViewDetailsPage: React.FC<ViewDetailsPageProps> = ({ nomination, competiti
                 </button>
                 {competitionPhase === Phase.Voting && (
                     <div className="flex-1 basis-1/2">
-                        <VoteButton nominationId={nomination.id} disabled={userHasVoted || competitionPhase !== Phase.Voting} onSuccess={() => onBack()}/>
+                        <VoteButton nominationId={nomination.id} disabled={userHasVoted || competitionPhase !== Phase.Voting} onSuccess={() => onBack()} />
                     </div>
                 )}
             </div>
