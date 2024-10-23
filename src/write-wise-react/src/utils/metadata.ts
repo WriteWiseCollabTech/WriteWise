@@ -78,7 +78,6 @@ export const parseCompetitionMetadata = (contest: ContestBlockchain, id: string)
       reason: nomination.reason,
     };
     const metadata = encodeMetadataToHex(metadataJson)
-    console.log(`parsed metadata for ${nomination.id}`, metadata)
     return {
       contestId: nomination.competitionId,
       metadata,
