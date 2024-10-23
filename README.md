@@ -8,9 +8,9 @@ Using WriteWise, individuals, communities, and companies can nominate published 
 
 WriteWise supports decentralized science while awarding authors with prizes and increased visibility. The platform aspires to not only increase awareness of scientific knowledge, but in the future to bring ownership of intellectual property (IP) back to collaborators of publications and research.
 
-**WriteWise** - Was created by Team-\#2 during the [CollabTech hackathon (1st - 30th October 2024)](https://www.rndao.io/collabtech) organized by [rnDAO](https://www.rndao.io/). 
+**WriteWise** - Was created by Team 2 during the [CollabTech hackathon (1st - 30th October 2024)](https://www.rndao.io/collabtech) organized by [rnDAO](https://www.rndao.io/). 
 
-__The Hackthon Team__
+__The Hackathon Team__
 * [@GoretiFreitas](https://github.com/GoretiFreitas)
 * [@jupiterblock](https://github.com/jupiterblock)
 * [@polatdk](https://github.com/polatdk)
@@ -20,15 +20,15 @@ __The Hackthon Team__
 * [@transalm](https://github.com/transalm)
 
 ## Features
-1. Create Competion
-2. Nominate a paper to a competition
-3. Vote on nominated paper
-1. Cast vote on nominated papers
+1. Create Competition and set up prizes - sponsor
+1. Nominate a paper to a competition - nominator and nominees
+1. Vote on a nominated paper - voter
+1. Cast vote on nominated papers - voter
 1. View votes, nominations and competitions
 
 ## Future Features
-1. Sponsor, subsudize, fund competions by stocking tokens as prize
-2. Split prize between contributers and nominaters of the winning papers
+1. Sponsor, subsidize, fund competitions by stocking tokens as prizes
+2. Split prizes between nominators and nominees of the winning papers
 
 ## Installation
 Follow the instructions in the [Installation Guide](docs/installation-guide.md) and the [Deployment Guide](docs/deployment-guide.md)
