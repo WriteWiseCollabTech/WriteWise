@@ -54,15 +54,12 @@ export const getAllContests = () => {
             let idCounter = 1;
             while (true) {
                 const contestId = `0x${idCounter.toString(16).padStart(64, '0')}`; // Format as 32-byte hex
-                console.log(`fetch contest with id ${contestId}`)
                 try {
                     const contestData: ContestBlockchain = await contract.contest(contestId);
                     if (!contestData) {
                         break;
                     }
-                    console.log(contestData)
                     const contest = parseCompetitionMetadata(contestData, contestId)
-                    console.log(`parsed contest ${contest}`)
                     contests.push(contest);
                     idCounter++;
                 } catch (error) {
@@ -91,9 +88,7 @@ export const getAllNominations = () => {
                     if (!nominationBlockchain) {
                         break;
                     }
-                    console.log(nominationBlockchain)
                     const nomination = parseNominationMetadata(nominationBlockchain, nominationId)
-                    console.log('parsed nomination',nomination)
                     nominations.push(nomination);
                     idCounter++;
                 } catch (error) {
@@ -103,7 +98,7 @@ export const getAllNominations = () => {
                 }
             }
         } catch (error) {
-            console.error("Error getting contests:", error);
+            console.error("Error getting nominations:", error);
         }
         return nominations;
     };
@@ -114,16 +109,14 @@ export const getAllVotes = () => {
         const contract = getContractInstance(provider);
         const votes: Array<Vote> = [];
         try {
-            let idCounter = 1;
+            let idCounter = 0;
             while (true) {
                 try {
                     const voteBlockchain: VoteBlockchain = await contract.vote(idCounter);
                     if (!voteBlockchain) {
                         break;
                     }
-                    console.log(voteBlockchain)
                     const vote = parseVote(voteBlockchain)
-                    console.log(`parsed vote ${vote}`)
                     votes.push(vote);
                     idCounter++;
                 } catch (error) {
@@ -133,7 +126,7 @@ export const getAllVotes = () => {
                 }
             }
         } catch (error) {
-            console.error("Error getting contests:", error);
+            console.error("Error getting votes:", error);
         }
         return votes;
     };

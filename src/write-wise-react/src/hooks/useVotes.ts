@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useEthereumContext } from '../contexts/EthereumContext';
 import { getAllVotes } from '../contracts/contractService';
 import { Vote } from '../types/Competition';
@@ -11,8 +11,7 @@ export const useVotes = () => {
   const [error, setError] = useState<string | null>(null);
   const { votes: allData } = useCompetitionData()
 
-  useEffect(() => {
-    const fetchNominations = async () => {
+    const fetchVotes = useCallback(async () => {
         console.log(provider)
     if (provider){
         try {
@@ -32,9 +31,11 @@ export const useVotes = () => {
           setLoading(false);
         }
       }
-    };
-    fetchNominations();
-  }, [provider, createReadOperation, allData]);
+    }, [provider, createReadOperation, allData]);
 
-  return { votes, loading, error };
+    useEffect(() => {
+        fetchVotes();
+      }, [fetchVotes]);
+
+  return { votes, loading, error, refetch: fetchVotes };
 };

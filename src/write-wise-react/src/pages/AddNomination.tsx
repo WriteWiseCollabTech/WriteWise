@@ -37,6 +37,7 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
     imageUrl,
     reason,
     nominator: '',
+    voteCount: 0
   };
 
   return (
@@ -60,7 +61,7 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Title of paper"
             maxLength={200}
-            value={description}
+            value={title}
             onChange={(e) => setTitle(e.target.value)}
             required
           />
@@ -101,17 +102,18 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
 
         {/* Image */}
         <div>
-          <label className="block font-semibold mb-1" htmlFor="image">
-            Image
+          <label className="block font-semibold mb-1" htmlFor="link">
+             Image Link
           </label>
           <input
-            id="image"
-            type="file"
-            accept="image/*"
-            className="w-full p-3 border rounded-lg"
-            onChange={handleImageChange}
+            id="link"
+            type="url"
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            placeholder="https://"
+            value={imageUrl}
+            onChange={(e) => setImageUrl(e.target.value)}
+            required
           />
-          {imageUrl && <img src={imageUrl} alt="Selected" className="mt-4 w-full h-auto rounded-lg" />}
         </div>
 
         {/* Reason for Nomination */}
@@ -147,3 +149,22 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
 };
 
 export default AddNominationPage;
+
+/*
+
+<div>
+          <label className="block font-semibold mb-1" htmlFor="link">
+            Link to publication source <span className="text-red-500">*</span>
+          </label>
+          <input
+            id="link"
+            type="url"
+            className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
+            placeholder="https://"
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
+            required
+          />
+        </div>
+
+        */

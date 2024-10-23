@@ -25,7 +25,6 @@ export const parseCompetitionMetadata = (contest: ContestBlockchain, id: string)
 
   export const parseNominationMetadata = (nomination: NominationBlockchain, nominationId: string): Nomination => {
     const metadata = decodeMetadataFromHex(nomination.metadata)
-    console.log(metadata)
     return {
       title: metadata.title,
       competitionId: nomination.contestId,
@@ -35,6 +34,7 @@ export const parseCompetitionMetadata = (contest: ContestBlockchain, id: string)
       reason: metadata.reason,
       id: nominationId,  // Include the nomination ID for frontend purposes
       nominator: nomination.manager,  // Manager/creator of the nomination
+      voteCount: 0
     };
   };
 
@@ -78,6 +78,7 @@ export const parseCompetitionMetadata = (contest: ContestBlockchain, id: string)
       reason: nomination.reason,
     };
     const metadata = encodeMetadataToHex(metadataJson)
+    console.log(`parsed metadata for ${nomination.id}`, metadata)
     return {
       contestId: nomination.competitionId,
       metadata,

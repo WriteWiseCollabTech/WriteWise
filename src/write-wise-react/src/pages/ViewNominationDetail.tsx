@@ -6,14 +6,15 @@ import PhaseTabs from '../components/PhaseTabs';
 interface ViewDetailsPageProps {
     nomination: Nomination;
     competitionPhase: Phase;
+    userHasVoted: boolean;
     onBack: () => void;
 }
 
-const ViewDetailsPage: React.FC<ViewDetailsPageProps> = ({ nomination, competitionPhase, onBack }) => {
+const ViewDetailsPage: React.FC<ViewDetailsPageProps> = ({ nomination, competitionPhase, userHasVoted, onBack }) => {
     return (
         <div className="p-5">
             {/* Title Section */}
-            <h1 className="text-3xl font-bold text-blue-600 mb-5">View Publication</h1>
+            <h1 className="text-3xl font-semi-bold text-primary mb-5">Read Paper</h1>
 
             {/* Phase Tabs Component */}
             <PhaseTabs currentPhase={competitionPhase} layout="horizontal" />
@@ -38,7 +39,7 @@ const ViewDetailsPage: React.FC<ViewDetailsPageProps> = ({ nomination, competiti
                 </button>
                 {competitionPhase === Phase.Voting && (
                     <div className="flex-1 basis-1/2">
-                        <VoteButton nominationId={nomination.id} disabled={competitionPhase !== Phase.Voting} />
+                        <VoteButton nominationId={nomination.id} disabled={userHasVoted || competitionPhase !== Phase.Voting} onSuccess={() => onBack()}/>
                     </div>
                 )}
             </div>

@@ -33,7 +33,7 @@ const AddNominationButton: React.FC<AddNominationButtonProps> = ({ nomination, o
         onClick={handleAddNomination}
         className={`w-full px-5 py-2 border-none rounded cursor-pointer transition ${isAdding
             ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-            : 'bg-blue-600 text-white hover:bg-blue-700'
+            : 'bg-primary text-white hover:bg-blue-700'
           }`}
         disabled={isAdding}
       >

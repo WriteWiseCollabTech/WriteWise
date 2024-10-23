@@ -22,7 +22,7 @@ const competitionsData: Competition[] = [
       ],
   },
   {
-    id: '0x0000000000000000000000000000000000000000000000000000000000000002',
+    id: '0x0000000000000000000000000000000000000000000000000000000000000006',
     title: 'Impact of Universal Basic Income',
     description: "A competition exploring research on the effects of Universal Basic Income (UBI) across different nations, focusing on poverty alleviation and social mobility. Researchers are invited to submit papers investigating UBI's role in reducing inequality, fostering economic stability, and influencing labor markets worldwide.",
     phase: Phase.Voting,
@@ -40,7 +40,7 @@ const competitionsData: Competition[] = [
       ],
   },
   {
-    id: '0x0000000000000000000000000000000000000000000000000000000000000003',
+    id: '0x0000000000000000000000000000000000000000000000000000000000000007',
     title: 'Biology & Quantified Self Movement',
     description: 'This competition highlights research on the intersection of biology and technology in the quantified self movement. Papers should focus on how biological data collection through personal devices informs health decisions, self-awareness, and preventive healthcare, impacting both individual well-being and public health strategies.',
     phase: Phase.Closed,
@@ -69,7 +69,8 @@ export const nominationsData: Nomination[] = [
     description: 'This paper explores AI’s ability to predict patient outcomes, optimizing treatments and reducing hospital readmissions.',
     imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354667495424/image3.jpg?ex=6718ee66&is=67179ce6&hm=e3375c5b493a6c4a01061cc7ed3fed494033111a0b9a1207f63c256639eeb983&',
     reason: 'Nominated for its ground-breaking application of AI in healthcare, showcasing how technology can',
-    nominator: 'user1'
+    nominator: 'user1',
+    voteCount: 0
   },
   {
     id: '0x0000000000000000000000000000000000000000000000000000000000000002',
@@ -79,7 +80,8 @@ export const nominationsData: Nomination[] = [
     description: 'A comprehensive review of how CRISPR technology revolutionizes gene editing, particularly in preventing genetic disorders',
     imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354080165971/image.jpg?ex=6718ee66&is=67179ce6&hm=9ba58c30d9f77c1f6fb992eba7e8ceda9ead88c76099f40f3ad0b4e4a53bcea5&',
     reason: 'transformative impact on disease prevention, highlighting its potential to eliminate hereditary conditions globally',
-    nominator: 'user1'
+    nominator: 'user1',
+    voteCount: 0
   },
   {
     id: '0x0000000000000000000000000000000000000000000000000000000000000003',
@@ -89,8 +91,42 @@ export const nominationsData: Nomination[] = [
     description: 'Research advancing personalized cancer treatment through genetic profiling to improve patient outcomes and reduce adverse effects',
     imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354378092645/image2.jpg?ex=6718ee66&is=67179ce6&hm=03d666fddfeb0230a70089cc0ca81adc46e5b039c8bb53a2b7890157d552339c&',
     reason: 'This paper innovates cancer treatment by tailoring therapies to individual patients, enhancing effectiveness while minimizing harmful side effects',
-     nominator: 'user1'
+    nominator: 'user1',
+    voteCount: 0
   },
+  {
+    id: '0x0000000000000000000000000000000000000000000000000000000000000004',
+    competitionId: '0x0000000000000000000000000000000000000000000000000000000000000006',
+    title: 'Universal Basic Income in Finland: Long-term Economic Effects',
+    link: 'https://descier.mypinata.cloud/ipfs/QmSriSFFwoXDtE8MrrJAzs3GpqzjK3aZYo7QZMK1wsp6sQ',
+    description: "This paper evaluates the long-term economic impacts of Finland's UBI pilot, particularly on unemployment rates and income stability.",
+    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354969616414/Money.jpg?ex=6718ee66&is=67179ce6&hm=13de039019ba43e5037bf259c9168b7908a11c2350571849bb4d730497e5ec93&',
+    reason: 'The study provides comprehensive data on how UBI reduces poverty and unemployment, making it a critical model for other countries.',
+    nominator: 'user1',
+    voteCount: 0
+  },
+  {
+    id: '0x0000000000000000000000000000000000000000000000000000000000000005',
+    competitionId: '0x0000000000000000000000000000000000000000000000000000000000000006',
+    title: 'UBI and Gender Equality: A Global Perspective',
+    link: 'https://descier.mypinata.cloud/ipfs/QmSriSFFwoXDtE8MrrJAzs3GpqzjK3aZYo7QZMK1wsp6sQ',
+    description: "Research exploring the role of UBI in improving gender equality by enabling women to participate more in the workforce globally.",
+    imageUrl: 'https://cdn.discordapp.com/attachments/1291675751250132992/1298264354969616414/Money.jpg?ex=6718ee66&is=67179ce6&hm=13de039019ba43e5037bf259c9168b7908a11c2350571849bb4d730497e5ec93&',
+    reason: 'This paper highlights the unique socio-economic benefits UBI offers women, enhancing workforce participation and financial independence.',
+    nominator: 'user1',
+    voteCount: 0
+  },
+  {
+    id: '0x0000000000000000000000000000000000000000000000000000000000000006',
+    competitionId: '0x0000000000000000000000000000000000000000000000000000000000000006',
+    title: 'Universal Basic Income and Mental Health Outcomes',
+    link: 'https://descier.mypinata.cloud/ipfs/QmSriSFFwoXDtE8MrrJAzs3GpqzjK3aZYo7QZMK1wsp6sQ',
+    description: "A detailed analysis of UBI's effects on mental health in low-income populations, focusing on stress reduction and improved quality of life.",
+    imageUrl: '',
+    reason: "The study emphasizes UBI's potential to significantly reduce mental health issues in marginalized groups by providing financial security.",
+    nominator: 'user1',
+    voteCount: 0
+  }
 ];
 
 // Dummy Votes

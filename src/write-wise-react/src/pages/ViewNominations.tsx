@@ -1,41 +1,92 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import PhaseTabs from '../components/PhaseTabs'; // Corrected to default import
-import { Competition, Phase, Nomination } from '../types/Competition';
+import { Competition, Phase, Nomination, Vote } from '../types/Competition';
 import NominationsList from '../components/NominationList';
-//import { useVotes } from '../hooks/useVotes';
-//import { useEthereumContext } from '../contexts/EthereumContext';
+import { useVotes } from '../hooks/useVotes';
+import { useEthereumContext } from '../contexts/EthereumContext';
 import { useNominations } from "../hooks/useNominations"
+import { convertNominationToBlockchain } from '../utils/metadata';
 
 interface ViewNominationsPageProps {
   competition: Competition;
   onBack: () => void;
   onAddNomination: () => void;
-  onViewNominationDetails: (nomination: Nomination) => void;
+  onViewNominationDetails: (nomination: Nomination, userHasVoted: boolean) => void;
 }
 
 const ViewNominationsPage: React.FC<ViewNominationsPageProps> = ({ competition, onBack, onAddNomination, onViewNominationDetails }) => {
-  const { nominations, loading: nominationsLoading } = useNominations();
-  //const { votes, loading } = useVotes();
-  //const { account } = useEthereumContext();
+  const { nominations, loading: nominationsLoading, refetch: refetchNomination } = useNominations();
+  const { votes, loading: votesLoading, refetch: refetchVotes } = useVotes();
+  const { account } = useEthereumContext();
+
+  nominations.forEach((nomination) => {
+    convertNominationToBlockchain(nomination)
+  });
 
   const filteredNominations = nominations.filter((nomination) => nomination.competitionId === competition.id);
+
+  const [updatedNominations, setUpdatedNominations] = useState<Nomination[]>([]);
+  const [userHasVoted, setUserHasVoted] = useState<boolean>(false);
+
+  const refetchData = useCallback(() => {
+    refetchNomination();
+    refetchVotes();
+  }, [refetchNomination, refetchVotes]);
+
+
+
+  useEffect(() => {
+    if (!votesLoading && !nominationsLoading && filteredNominations.length > 0) {
+      // First, filter votes that belong to the current list of nominations
+      const nominationIds = filteredNominations.map((nomination) => nomination.id);
+      const filteredVotes = votes.filter((vote) => nominationIds.includes(vote.nominationId));
+
+      // Update the nominations with vote count
+      const newNominations = filteredNominations.map((nomination) => {
+        // Calculate vote count for each nomination
+        const voteCount = filteredVotes.filter((vote) => vote.nominationId === nomination.id).length;
+
+        return {
+          ...nomination,
+          voteCount,
+        };
+      });
+
+      // Check if the user has already voted for any nomination in this competition
+      const hasVoted = filteredVotes.some((vote: Vote) => vote.userAddress.toLowerCase() === account?.toLowerCase());
+
+      if (JSON.stringify(updatedNominations) !== JSON.stringify(newNominations)) {
+        setUpdatedNominations(newNominations);
+      }
+
+      if (userHasVoted !== hasVoted) {
+        setUserHasVoted(hasVoted);
+      }
+    }
+  }, [votes, votesLoading, nominationsLoading, filteredNominations, account, updatedNominations, userHasVoted]);
+
+
+  if (nominationsLoading || votesLoading) {
+      return <div>Loading...</div>;
+  }
 
   return (
     <div className="p-5">
       {/* Title Section */}
-      <h1 className="text-3xl font-bold text-blue-600 mb-5">View Nominations</h1>
+      <h1 className="text-3xl font-semi-bold text-primary text-center mb-5">View Nominations</h1>
 
       {/* Phase Tabs Component */}
       <PhaseTabs currentPhase={competition.phase} layout="horizontal" />
 
       {/* Add Nomination Button - Visible only during Nomination Phase */}
-      {competition.phase === Phase.Nomination && (
+      {(
         <div className="mb-5">
           <button
-            className="w-full bg-green-600 text-white font-semibold py-2 rounded-lg hover:bg-green-700 transition"
+            className="w-full bg-primary text-white font-semibold py-2 rounded-l mt-5 items-center justify-center space-x-2"
             onClick={onAddNomination}
           >
-            Add Nomination
+             <span className="text-2xl font-bold">+</span>
+             <span className="text-lg">Add Nomination</span>
           </button>
         </div>
       )}
@@ -45,9 +96,11 @@ const ViewNominationsPage: React.FC<ViewNominationsPageProps> = ({ competition, 
         <p>Loading nominations...</p>
       ) : (
         <NominationsList
-          nominations={filteredNominations}
+          nominations={updatedNominations}
+          userHasVoted={userHasVoted}
           phase={competition.phase}
           onViewDetails={onViewNominationDetails}
+          onSuccess={refetchData}
         />
       )}
 

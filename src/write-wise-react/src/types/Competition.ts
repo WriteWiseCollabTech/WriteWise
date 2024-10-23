@@ -44,6 +44,7 @@ export interface Competition {
     imageUrl: string
     reason: string;
     nominator: string;
+    voteCount: number;
   }
 
   export interface Vote {

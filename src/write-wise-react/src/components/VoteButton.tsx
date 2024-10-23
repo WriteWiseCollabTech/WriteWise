@@ -6,9 +6,10 @@ import SuccessModal from './SuccessModal';
 interface VoteButtonProps {
     nominationId: string;
     disabled: boolean;
+    onSuccess: () => void;
 }
 
-const VoteButton: React.FC<VoteButtonProps> = ({ nominationId, disabled }) => {
+const VoteButton: React.FC<VoteButtonProps> = ({ nominationId, disabled, onSuccess }) => {
     const { account, connectWallet } = useEthereumContext();
     const { vote, isVoting, showSuccessModal, closeModal } = useVote();
 
@@ -21,6 +22,11 @@ const VoteButton: React.FC<VoteButtonProps> = ({ nominationId, disabled }) => {
         // Proceed to vote once wallet is connected
         await vote(nominationId);
     };
+    
+    const handleCloseModal = () => {
+        closeModal();
+        onSuccess(); // Navigate back after closing the modal
+     };
 
     let buttonLabel = 'Vote';
     if (!account && !disabled) {
@@ -37,7 +43,7 @@ const VoteButton: React.FC<VoteButtonProps> = ({ nominationId, disabled }) => {
                 onClick={handleVote}
                 className={`w-full py-2 border-none rounded cursor-pointer transition ${disabled
                         ? 'bg-gray-400 text-gray-200 cursor-not-allowed'
-                        : 'bg-blue-600 text-white hover:bg-blue-700'
+                        : 'bg-primary text-white hover:bg-blue-700'
                     }`}
                 disabled={disabled || isVoting}
             >
@@ -49,7 +55,7 @@ const VoteButton: React.FC<VoteButtonProps> = ({ nominationId, disabled }) => {
                 <SuccessModal
                     header="Vote Submitted!"
                     message="Thank you for making your impact"
-                    onClose={closeModal}
+                    onClose={handleCloseModal}
                 />
             )}
         </div>

@@ -13,7 +13,7 @@ const SuccessModal: React.FC<SuccessModalProps> = ({ header, message, onClose })
         <h2 className="text-xl font-bold mb-4">{header}</h2>
         <p className="text-gray-700 mb-6">{message}</p>
         <button
-          className="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+          className="px-4 py-2 bg-blue-600 text-primary rounded-lg hover:bg-blue-700 transition"
           onClick={onClose}
         >
           Close

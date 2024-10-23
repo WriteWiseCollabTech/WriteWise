@@ -5,10 +5,12 @@ import VoteButton from './VoteButton'
 interface NominationsListProps {
     phase: Phase;
     nominations: Nomination[];
-    onViewDetails: (nomination: Nomination) => void;
+    userHasVoted: boolean;
+    onViewDetails: (nomination: Nomination, userHasVoted: boolean) => void;
+    onSuccess: () => void;
 }
 
-const NominationsList: React.FC<NominationsListProps> = ({ phase, nominations, onViewDetails }) => {
+const NominationsList: React.FC<NominationsListProps> = ({ phase, nominations, userHasVoted, onViewDetails, onSuccess }) => {
 
     if (nominations.length === 0) {
         return (
@@ -23,22 +25,26 @@ const NominationsList: React.FC<NominationsListProps> = ({ phase, nominations, o
             {nominations.map((nomination) => (
                 <div key={nomination.id} className="p-4 border rounded-lg shadow-md bg-white">
 
-                    <h1 className="text-lg font-bold mb-1">{nomination.title}</h1>
+                    <h1 className="text-xl font-bold text-primary mb-1">{nomination.title}</h1>
                     {/* Nomination Image Placeholder */}
-                    <div className="w-full h-32 bg-gray-300 rounded-lg mb-4 flex items-center justify-center">
-                        <img src={nomination.imageUrl} alt={nomination.description} className="h-full object-cover rounded-lg" />
+                    <div className="w-full h-32 mb-4 overflow-hidden rounded-lg">
+                        <img
+                            src={nomination.imageUrl}
+                            alt={nomination.description}
+                            className="w-full h-full object-cover"
+                        />
                     </div>
                     {/* Nomination Details */}
-                    <h2 className="text-lg font-bold mb-1">{nomination.description}</h2>
-                    <p className="text-gray-700 font-semibold mb-2">Authors & Collaborators</p>
-                    <p className="text-gray-600 mb-4">{nomination.reason}</p>
+                    <h2 className="text-sm text-textGray mb-1">{nomination.description}</h2>
+                    <p className="text-textGray font-semibold mb-2">Why it matters</p>
+                    <p className="text-textGray mb-4">{nomination.reason}</p>
                     {/* Action Buttons */}
                     <div className="flex gap-4">
-                        <button className="flex-1 basis-1/2 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition"
-                            onClick={() => onViewDetails(nomination)}>
-                            View Details
+                        <button className="flex-1 basis-1/2 py-2 border border-primary  bg-white text-primary"
+                            onClick={() => onViewDetails(nomination, userHasVoted)}>
+                            Read Paper
                         </button>
-                        <VoteButton nominationId={nomination.id} disabled={phase !== Phase.Voting} />
+                        <VoteButton nominationId={nomination.id} disabled={userHasVoted || phase !== Phase.Voting} onSuccess={() => onSuccess} />
                     </div>
                 </div>
             ))}

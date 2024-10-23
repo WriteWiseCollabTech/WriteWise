@@ -1,4 +1,4 @@
-export const CONTRACT_ADDRESS = '0xf3F8f5D39e63a3D2A2b988771240c17A32e559B0';
+export const CONTRACT_ADDRESS = '0x0b4ddf2ab91f82aa71111886c3b44b63fb58274a';
 
 export const ARBITRUM_GOERLI_PARAMS = {
     chainId: '0x66eee', // 421614 in hex
