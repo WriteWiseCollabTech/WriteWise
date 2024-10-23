@@ -8,9 +8,9 @@ Using WriteWise, individuals, communities, and companies can nominate published 
 
 WriteWise supports decentralized science while awarding authors with prizes and increased visibility. The platform aspires to not only increase awareness of scientific knowledge, but in the future to bring ownership of intellectual property (IP) back to collaborators of publications and research.
 
-**WriteWise** - Was created by Team-\#2 during the [CollabTech hackaton (1st - 30th October 2024)](https://www.rndao.io/collabtech) organized by [rnDAO](https://www.rndao.io/). 
+**WriteWise** - Was created by Team-\#2 during the [CollabTech hackathon (1st - 30th October 2024)](https://www.rndao.io/collabtech) organized by [rnDAO](https://www.rndao.io/). 
 
-__The Hackton Team__
+__The Hackthon Team__
 * [@GoretiFreitas](https://github.com/GoretiFreitas)
 * [@jupiterblock](https://github.com/jupiterblock)
 * [@polatdk](https://github.com/polatdk)
