@@ -122,7 +122,7 @@ These impacts will help build a more equitable, transparent, and efficient knowl
 
 [4] National Science Board 2024.Publications Output: U.S. Trends and International Comparisons. Available at https://ncses.nsf.gov/pubs/nsb202333/publication-output-by-region-country-or-economy-and-by-scientific-field
 
-[5] STM Report by the International Association of Scientific, Technical and Medical Publishers 2018. Available at https://www.stm-assoc.org/2018_10_04_STM_Report_2018.pdf
+[5] STM Report by the International Association of Scientific, Technical and Medical Publishers 2018. Available at https://stm-assoc.org/wp-content/uploads/2024/08/2018_10_04_STM_Report_2018-1.pdf
 
 [6] STM Global Brief 2021 – Economics & Market Size. Available at https://www.stm-assoc.org/2022_08_24_STM_White_Report_a4_v15.pdf
 
