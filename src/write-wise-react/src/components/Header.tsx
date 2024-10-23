@@ -11,9 +11,13 @@ const Header: React.FC<HeaderProps> = ({ onHomeClick }) => {
             {/* Home Button */}
             <button
                 onClick={onHomeClick}
-                className="px-5 py-2 text-primary fill-white border-none rounded shadow-lg transition-all duration-300 hover:bg-blue-600"
+                className="px-5 py-5 fill-white border-none rounded"
             >
-                Home
+                <img
+                    src="https://i.imgur.com/NOe5pHH.png"
+                    alt="Home"
+                    className="w-12 h-12 object-contain rounded-full transition-all duration-300 hover:opacity-80"
+                />
             </button>
 
             {/* Connect Wallet Button */}
