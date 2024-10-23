@@ -16,6 +16,7 @@ Before we proceed, let's clarify some key terms used in this text.
 
 ![image](https://github.com/user-attachments/assets/43ce26a7-29f6-47c1-add6-ba2c285e24ba)
 
+(Figure 1. Number of manuscripts submitted per year to scientific publishing houses, number of journals' titles and journal-centered impact factor.)
 
 **Readers as consumers of knowledge.** Consumers are not only scholars who will use papers for expanding knowledge and building on top for their projects and ideas, but also those who will use in real world applications such as scientists, researchers, academics, students, educational institutions, libraries, industry professionals, companies, government and policymakers, other scientific publishers and journals, investors and venture capitalists and, the general public.
 
