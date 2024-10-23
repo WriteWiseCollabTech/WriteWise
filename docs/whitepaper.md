@@ -6,6 +6,10 @@ WriteWise is a prize-awarding competition platform focused on work-driven impact
 
 ## Problem
 
+The current structure of the scientific publishing industry in unfair to knowledge producers. These knowledge producers are authors, researchers, scientists, working in Academia, in companies and independently who do not receive fair exposure for the impact they create. Usually, the impact is measured for the journal-focused models that center on the journal’s impact factor for outreach rather than the knowledge the work produced.
+
+Before we proceed, let's clarify some key terms used in this text.
+
 **Papers.** A paper is a published technical and scientific text, formatted in certain ways, usually peer-reviewed and published in specialized journals.
 
 **Impact factor.** For the current scientific publishing industry, the impact factor is calculated by how many times the paper has been cited by other researchers, and these impact metrics do not consider the impact on the general public. Therefore, the impact factor is directly linked to the journal where a paper is published and has nothing to do with the impact the work produces in real life. WriteWise on the other hand, emphasizes and focuses on metrics such as quality of the work and potential applications as perceived by the general public, and by doing this is giving the public greater visibility as to existing research. 
@@ -45,6 +49,7 @@ The WriteWise platform will utilize blockchain for transparent tracking of nomin
 Winning a WriteWise competition allows authors to expand their reach, create meaningful, work-driven impact, and gain additional funding for their work directly or through reputation. At the same time, WriteWise will allow anyone interested to sponsor a competition and gather good quality research papers for a comprehensive literature review around a certain topic, which could be a first step towards applied research.
 
 The impact factor system created by the industry is an exclusionary approach that entrenches a high-cost, journal-centered paradigm, which is especially harmful to underfunded institutions, companies, individuals, and independent researchers. Therefore, impact should be redirected towards the consumer side—the individuals and organizations who use that knowledge. Universities, independent researchers, students, and companies are all key stakeholders in this system. 
+
 What is the coolest piece of science I have read lately? What was a striking takeaway message from a specific paper I came across? Who represented a project with a beautiful graphic? Which paper was delightfully simple to understand even though it addressed a complex theme? These are all valid questions for an award-winning published paper.
 
 The traditional model often imposes its own journal-centered 'impact factor.' Typically, the higher the price per paper (which can reach up to around $15,000 USD per paper), the higher the so-called impact factor. This model limits the community's ability to judge valuable knowledge, hindering the collection of information for the 'true impact' or 'impact contribution' of a published paper from any given author or university, regardless of whether they have funds to pay for publication.
@@ -55,9 +60,9 @@ With token-based incentives, consumers will be able to directly vote on the know
 
 ## Why Web3 and Why Arbitrum
 
-So, why web3? What are the advantages over a web2 infrastructure? Besides the commonly cited advantages of web3 such as enhanced security, transparency, user control, automation (nominations, voting and prize-awarding, automatically enabled by smart contracts transactions), and cost efficiency,  incorporating blockchain technology into prize nominations and awards can significantly enhance fairness through global accessibility, trust, user experience, credibility, transparency, and create reputation records of impact for both the nominees and the winners. Prizes and nominations minted on NFTs can offer verifiable digital certificates of achievement.
+So, why web3? What are the advantages over a web2 infrastructure? Besides the commonly cited advantages of web3 such as enhanced security, transparency, user control, automation (nominations, voting and prize-awarding, automatically enabled by smart contracts transactions), and cost efficiency,  incorporating blockchain technology into prize nominations and awards can significantly enhance fairness through global accessibility, trust, user experience and credibility to create reputation records of impact for both the nominees and the winners. Prizes and nominations minted on NFTs can offer verifiable digital certificates of achievement.
 
-A token-based incentive mechanism can be built on top of the app.
+A token-based incentive mechanism can be built on top of the WriteWise app.
 
 WriteWise leverages the power of the crypto economy for a public good. The Web3 crowd is full of smart people from various backgrounds, often scientific. This project will bridge the gap between DeFi and DeSci, linking the two communities together in very beneficial ways for both.
 
@@ -65,7 +70,7 @@ The Arbitrum platform continues to gain popularity among users [7]. But Arbitrum
 
 ## Potential Impact
 
-As a prize-awarding app, several strategies can be employed to maximize its reach and effectiveness:
+As a prize-awarding app, several strategies can be employed to maximize WriteWise reach and effectiveness:
 
 **Incentivize Community Participation:** Introduce mechanisms for the general public to engage in the knowledge ecosystem, such as nominating and voting on impactful research. This alignment can drive consumer interests with the platform's success, creating a dynamic collaborative community that values knowledge and actively contributes to its growth.
 
@@ -74,7 +79,8 @@ As a prize-awarding app, several strategies can be employed to maximize its reac
 **Expand accessibility:** Ensure the platform is easily accessible globally, including in regions where access to scientific research is traditionally limited. Offering multilingual support and mobile-friendly interfaces can broaden the platform’s reach to underserved communities.
 
 **Partnerships with forward-looking educational platforms:** Forge partnerships with decentralized platforms, independent peer-reviewing platforms, cutting-edge communities, communities working with frontier and new areas of knowledge, to integrate the platform into their existing structures. These partnerships would increase visibility, attract more consumers, and validate the platform as a credible alternative to traditional impact contribution and opinion formation.
-Crowdsourced recognition: Implement a decentralized, community-driven nomination and voting system that allows the audience to recognize and reward high-quality impactful research from the consumer standpoint. This could democratize the process, increasing transparency and fairness of scientific contributions, while enabling consumers to directly participate in assessing and promoting valuable content.
+
+**Crowdsourced recognition:** Implement a decentralized, community-driven nomination and voting system that allows the audience to recognize and reward high-quality impactful research from the consumer standpoint. This could democratize the process, increasing transparency and fairness of scientific contributions, while enabling consumers to directly participate in assessing and promoting valuable content.
 
 **Tokenized prizes for knowledge sharing and reputation building:** Introduce an award economy where consumers can earn tokens for contributing to the platform by nominating, reviewing, and ultimately promoting research. This encourages engagement and helps establish an active, thriving ecosystem where both producers and consumers are incentivized.
 
@@ -85,6 +91,8 @@ Crowdsourced recognition: Implement a decentralized, community-driven nomination
 **Leverage AI and data analytics:** Use AI tools to match consumers with relevant content, providing personalized research recommendations, and improving discoverability of niche or emerging fields. 
 
 ## The potential impact of implementing these solutions is significant and multifaceted.
+
+By introducing WriteWise as prize-awarding app for published papers, several potential impacts can be anticipated:
 
 **Empowering Knowledge Producers:** Researchers and creators will receive direct financial rewards for their contributions, increasing motivation and enabling them to focus more on innovation rather than navigating institutional barriers. Prizes and nominations minted on NFTs can offer verifiable digital certificates of achievement.
 
