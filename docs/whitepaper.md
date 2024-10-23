@@ -122,11 +122,13 @@ These impacts will help build a more equitable, transparent, and efficient knowl
 
 [4] National Science Board 2024.Publications Output: U.S. Trends and International Comparisons. Available at https://ncses.nsf.gov/pubs/nsb202333/publication-output-by-region-country-or-economy-and-by-scientific-field
 
-[5] STM Global Brief 2021 – Economics & Market Size. Available at https://www.stm-assoc.org/2022_08_24_STM_White_Report_a4_v15.pdf
+[5] STM Report by the International Association of Scientific, Technical and Medical Publishers 2018. Available at https://www.stm-assoc.org/2018_10_04_STM_Report_2018.pdf
 
-[6] WIPO 2022. Available at https://www.wipo.int/edocs/pubdocs/en/wipo-pub-1064-2023-2-en-the-global-publishing-industry-in-2022.pdf
+[6] STM Global Brief 2021 – Economics & Market Size. Available at https://www.stm-assoc.org/2022_08_24_STM_White_Report_a4_v15.pdf
 
-[7] National Center for Education Statistics. Available at https://nces.ed.gov/programs/coe/indicator/cta/undergrad-degree-fields 
+[7] WIPO 2022. Available at https://www.wipo.int/edocs/pubdocs/en/wipo-pub-1064-2023-2-en-the-global-publishing-industry-in-2022.pdf
 
-[8] The Arbitrum ecosystem is the largest L2 solution on Ethereum, with a Total Value Locked (TVL) of $6.17 billion and a market share of over 66% as of May 4th, 2023. Arbitrum also leads the L2 ecosystem in gas costs and the number of active wallets (https://www.alchemy.com/overviews/choose-arbitrum).
+[8] National Center for Education Statistics. Available at https://nces.ed.gov/programs/coe/indicator/cta/undergrad-degree-fields 
+
+[9] The Arbitrum ecosystem is the largest L2 solution on Ethereum, with a Total Value Locked (TVL) of $6.17 billion and a market share of over 66% as of May 4th, 2023. Arbitrum also leads the L2 ecosystem in gas costs and the number of active wallets (https://www.alchemy.com/overviews/choose-arbitrum).
 
