@@ -37,7 +37,7 @@ const AddNominationButton: React.FC<AddNominationButtonProps> = ({ nomination, o
           }`}
         disabled={isAdding}
       >
-        {account ? (isAdding ? 'Adding Nomination...' : 'Submit Nomination') : 'Connect Wallet to Add Nomination'}
+        {account ? (isAdding ? 'Adding Nomination...' : 'Submit Nomination') : 'Connect Wallet to Add'}
       </button>
 
       {/* Success Modal */}

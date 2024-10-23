@@ -27,9 +27,15 @@ const NominationsList: React.FC<NominationsListProps> = ({ phase, nominations, u
 
                     <h1 className="text-xl font-bold text-primary mb-1">{nomination.title}</h1>
                     {/* Nomination Image Placeholder */}
-                    <div className="w-full h-32 mb-4 overflow-hidden rounded-lg">
+                    <div className="w-full h-32 mb-4 overflow-hidden rounded-lg bg-gray-100 flex items-center justify-center">
                         <img
                             src={nomination.imageUrl}
+                            alt={nomination.description}
+                            onError={(e) => {
+                                e.currentTarget.onerror = null; // Prevent infinite loop
+                                e.currentTarget.src = "./image_placeholder.png"; // Path to your placeholder image
+                                e.currentTarget.className = "w-16 h-16 object-contain opacity-50"; // Adjust size for the placeholder image
+                            }}
                             className="w-full h-full object-cover"
                         />
                     </div>
