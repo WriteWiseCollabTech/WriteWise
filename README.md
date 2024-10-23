@@ -33,7 +33,7 @@ __The Hackton Team__
 2. Split prize between contributers and nominaters of the winning papers
 
 ## Installation
-Follow the instructions in the [Installation Guide](docs/installation-guide.md] and the [Deployment Guide](docs/deployment-guide.md]
+Follow the instructions in the [Installation Guide](docs/installation-guide.md) and the [Deployment Guide](docs/deployment-guide.md)
 
 You can use the deploy of [our latest version of the webapp](https://writewisecollabtech.github.io/WriteWise/)
 
