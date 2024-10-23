@@ -14,7 +14,6 @@ export const getVoteCount = (nominationId: string) => {
     return async (provider: ethers.Provider) => {
         const contract = getContractInstance(provider);
         const voteCount = await contract.getVoteTotal(nominationId);
-        console.log(`Vote count for nomination ${nominationId}: ${voteCount.toString()}`);
         return voteCount;
     };
 };
@@ -23,7 +22,6 @@ export const getCompetitionInfo = (contestId: string) => {
     return async (provider: ethers.Provider) => {
         const contract = getContractInstance(provider);
         const contest = await contract.contest(contestId);
-        console.log(`Contest info for contest ${contestId}:`, contest);
         return contest;
     };
 };

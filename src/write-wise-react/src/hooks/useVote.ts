@@ -11,8 +11,6 @@ export const useVote = () => {
         try {
             setIsVoting(true);
             // Blockchain voting logic goes here
-            console.log(`Initiating vote transaction for nomination ${nominationId}...`);
-
             const voteTransaction = castVote(nominationId);
             await createTransaction(voteTransaction);
 

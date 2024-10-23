@@ -30,7 +30,6 @@ const NominationsList: React.FC<NominationsListProps> = ({ phase, nominations, u
                     <div className="w-full h-32 mb-4 overflow-hidden rounded-lg">
                         <img
                             src={nomination.imageUrl}
-                            alt={nomination.description}
                             className="w-full h-full object-cover"
                         />
                     </div>

@@ -12,10 +12,8 @@ export const useVotes = () => {
   const { votes: allData } = useCompetitionData()
 
     const fetchVotes = useCallback(async () => {
-        console.log(provider)
     if (provider){
         try {
-        console.log("start fetchNominations")
           setLoading(true);
           const contestTransaction = getAllVotes();
           const voteList = await createReadOperation(contestTransaction);

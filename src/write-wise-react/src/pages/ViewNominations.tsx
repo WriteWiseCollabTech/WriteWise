@@ -67,7 +67,7 @@ const ViewNominationsPage: React.FC<ViewNominationsPageProps> = ({ competition, 
 
 
   if (nominationsLoading || votesLoading) {
-      return <div>Loading...</div>;
+    return <div>Loading...</div>;
   }
 
   return (
@@ -79,15 +79,22 @@ const ViewNominationsPage: React.FC<ViewNominationsPageProps> = ({ competition, 
       <PhaseTabs currentPhase={competition.phase} layout="horizontal" />
 
       {/* Add Nomination Button - Visible only during Nomination Phase */}
-      {(
+      {(competition.phase === Phase.Nomination) && (
         <div className="mb-5">
           <button
             className="w-full bg-primary text-white font-semibold py-2 rounded-l mt-5 items-center justify-center space-x-2"
             onClick={onAddNomination}
           >
-             <span className="text-2xl font-bold">+</span>
-             <span className="text-lg">Add Nomination</span>
+            <span className="text-2xl font-bold">+</span>
+            <span className="text-lg">Add Nomination</span>
           </button>
+        </div>
+      )}
+
+      {(competition.phase === Phase.Voting) && (
+        <div className="flex items-center justify-center space-x-2 text-textGray mt-5 mb-2">
+          <span className="text-sm">&#x2191;</span> {/* This is the up-arrow icon */}
+          <span className="text-sm font-semibold">{updatedNominations.reduce((acc, nomination) => acc + nomination.voteCount, 0)} votes received</span>
         </div>
       )}
 

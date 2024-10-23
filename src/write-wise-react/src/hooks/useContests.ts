@@ -15,7 +15,6 @@ export const useContests = () => {
         console.log(provider)
     if (provider){
         try {
-        console.log("start fetchContests")
           setLoading(true);
           setContests(competitions)
         } catch (err) {
