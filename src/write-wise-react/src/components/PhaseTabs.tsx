@@ -17,9 +17,9 @@ const PhaseTabs: React.FC<PhaseTabsProps> = ({ currentPhase, layout = 'horizonta
         }`;
     return (
         <div className={containerClasses}>
-            <div className={tabClasses(Phase.Nomination)}>Nomination</div>
+            <div className={tabClasses(Phase.Nomination)}>Nominating</div>
             <div className={tabClasses(Phase.Voting)}>Voting</div>
-            <div className={tabClasses(Phase.Closed)}>Closing</div>
+            <div className={tabClasses(Phase.Closed)}>Closed</div>
         </div>
 
     );
