@@ -1,3 +1,3 @@
 
-## Installig the mobile app
-TODO
+## Installing the mobile app
+TO DO
