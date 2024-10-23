@@ -14,7 +14,7 @@ Before we proceed, let's clarify some key terms used in this text.
 
 **Impact factor.** For the current scientific publishing industry, the impact factor is calculated by how many times the paper has been cited by other researchers, and these impact metrics do not consider the impact on the general public. Therefore, the impact factor is directly linked to the journal where a paper is published and has nothing to do with the impact the work produces in real life. WriteWise on the other hand, emphasizes and focuses on metrics such as quality of the work and potential applications as perceived by the general public, and by doing this is giving the public greater visibility as to existing research. 
 
-![image](https://github.com/user-attachments/assets/954104eb-5c8d-49f1-b2c1-8260a5f0b9ed)
+![image](https://github.com/user-attachments/assets/43ce26a7-29f6-47c1-add6-ba2c285e24ba)
 
 
 **Readers as consumers of knowledge.** Consumers are not only scholars who will use papers for expanding knowledge and building on top for their projects and ideas, but also those who will use in real world applications such as scientists, researchers, academics, students, educational institutions, libraries, industry professionals, companies, government and policymakers, other scientific publishers and journals, investors and venture capitalists and, the general public.
