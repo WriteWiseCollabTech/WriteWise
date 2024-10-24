@@ -26,6 +26,9 @@ __The Hackathon Team__
 1. Cast vote on nominated papers - voter
 1. View votes, nominations and competitions
 
+## Walkthrough Demo
+https://drive.google.com/file/d/1FnLRvePMByhXsa9pHp2bJ6X5bWOUyWGB/view?usp=drive_link
+
 ## Future Features
 1. Sponsor, subsidize, fund competitions by stocking tokens as prizes
 2. Split prizes between nominators and nominees of the winning papers
