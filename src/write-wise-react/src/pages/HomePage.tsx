@@ -1,6 +1,7 @@
 import React from 'react';
 import { Competition } from '../types/Competition';
 import { useContests } from "../hooks/useContests"
+import ViewCompetition from "../components/ViewCompetiton";
 
 
 interface HomePageProps {
@@ -33,9 +34,7 @@ const HomePage: React.FC<HomePageProps> = ({ onViewDetails }) => {
                                     {totalRewards} ARB
                                 </p>
                                 <h2 className="text-xl mt-2 text-primary font-semibold">{competition.title}</h2>
-                                <p className="text-sm text-textGray font-semibold">
-                                    {competition.phase} Phase
-                                </p>
+                                <ViewCompetition competition={competition} />
                                 <p className="text-sm text-textGray">
                                     {competition.creator}
                                 </p>

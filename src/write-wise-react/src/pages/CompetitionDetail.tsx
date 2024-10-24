@@ -1,5 +1,5 @@
 import React from 'react';
-import { Competition, Nomination } from '../types/Competition';
+import { Competition, Nomination, Phase } from '../types/Competition';
 import PhaseTabs from '../components/PhaseTabs';
 import { useNominations } from "../hooks/useNominations"
 
@@ -36,7 +36,7 @@ const CompetitionDetailsPage: React.FC<CompetitionDetailsPageProps> = ({ competi
                     <button
                         className="w-full bg-primary text-white font-semibold py-3 rounded-lg hover:bg-blue-700 transition mb-5"
                         onClick={() => onViewNominations(nominations)}>
-                        View {nominationSize} Nominations
+                        View {nominationSize} Nominations 
                     </button>
                 )}
             </div>
@@ -54,6 +54,9 @@ const CompetitionDetailsPage: React.FC<CompetitionDetailsPageProps> = ({ competi
                                 {reward.rank}
                                 {reward.rank === 1 ? 'st' : reward.rank === 2 ? 'nd' : reward.rank === 3 ? 'rd' : 'th'} Winner: {reward.amount} ARB
                             </span>
+                            {competition.phase === Phase.Closed && (
+                                <span className="ml-2">- {reward.winner}</span>
+                            )}
                             <span role="img" aria-label="trophy" className="ml-2">
                                 🏆
                             </span>

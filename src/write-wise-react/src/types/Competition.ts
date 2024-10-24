@@ -18,6 +18,7 @@ export enum NominationSource {
 export interface Rewards {
     rank: number;
     amount: number;
+    winner: string;
 }
 
 export interface Competition {
