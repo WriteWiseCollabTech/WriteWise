@@ -14,19 +14,7 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [imageUrl, setImageUrl] = useState('');
-  const [reason, setReason] = useState('');
-
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64String = reader.result?.toString() || '';
-        setImageUrl(base64String); // Set the base64 string as imageUrl
-      };
-      reader.readAsDataURL(file); // Convert the image to a Base64 string
-    }
-  };
+  const [reason, setReason] = useState(''); 
 
   const nomination: Nomination = {
     id: "1", 
@@ -52,11 +40,11 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
       <div className="space-y-5 mb-5">
 
       <div>
-          <label className="block font-semibold mb-1" htmlFor="title">
+          <label className="block font-semibold mb-1" htmlFor="nomination-title">
             Title <span className="text-red-500">*</span>
           </label>
           <input
-            id="title"
+            id="nomination-title"
             type="text"
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Title of paper"
@@ -69,11 +57,11 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
 
         {/* Link to Publication Source */}
         <div>
-          <label className="block font-semibold mb-1" htmlFor="link">
+          <label className="block font-semibold mb-1" htmlFor="publication-link">
             Link to publication source <span className="text-red-500">*</span>
           </label>
           <input
-            id="link"
+            id="publication-link"
             type="url"
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="https://"
@@ -85,11 +73,11 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
 
         {/* Description */}
         <div>
-          <label className="block font-semibold mb-1" htmlFor="description">
+          <label className="block font-semibold mb-1" htmlFor="nomination-description">
             Description <span className="text-red-500">*</span>
           </label>
           <input
-            id="description"
+            id="nomination-description"
             type="text"
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Description of paper (200 char max)"
@@ -102,11 +90,11 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
 
         {/* Image */}
         <div>
-          <label className="block font-semibold mb-1" htmlFor="link">
+          <label className="block font-semibold mb-1" htmlFor="image-link">
              Image Link
           </label>
           <input
-            id="link"
+            id="image-link"
             type="url"
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="https://"
@@ -118,11 +106,11 @@ const AddNominationPage: React.FC<AddNominationPageProps> = ({ competitionId, co
 
         {/* Reason for Nomination */}
         <div>
-          <label className="block font-semibold mb-1" htmlFor="reason">
+          <label className="block font-semibold mb-1" htmlFor="nomination-reason">
             Reason for nomination <span className="text-red-500">*</span>
           </label>
           <textarea
-            id="reason"
+            id="nomination-reason"
             className="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600"
             placeholder="Share your reasons for nominating.."
             value={reason}
