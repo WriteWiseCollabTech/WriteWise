@@ -36,4 +36,4 @@ Follow the instructions in the [Installation Guide](docs/installation-guide.md) 
 You can use the deploy of [our latest version of the webapp](https://writewisecollabtech.github.io/WriteWise/)
 
 ## Additional Documentation
-[Project's Docs](/docs/index.md)
+[Project's Docs](/docs)
